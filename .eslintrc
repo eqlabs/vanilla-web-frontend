@@ -1,0 +1,12 @@
+{
+  "env": {
+    "browser": true
+  },
+  "plugins": ["security"],
+  "extends": [
+    "@tislaamo",
+    "eslint:recommended",
+    "plugin:security/recommended",
+    "react-app"
+  ]
+}
