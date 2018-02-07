@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": ["prettier --write", "git add"]
+    "src/**/*.{js,jsx,json,css}": ["prettier --write", "git add", "nsp check"]
   },
   "scripts": {
     "precommit": "lint-staged",
