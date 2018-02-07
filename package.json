@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
-      "prettier --write",
-      "git add"
-    ]
+    "src/**/*.{js,jsx,json,css}": ["prettier --write", "git add"]
   },
   "scripts": {
     "precommit": "lint-staged",
@@ -20,6 +17,11 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.16.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.34.1",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
     "eslint-plugin-security": "^1.4.0",
     "husky": "^0.14.3",
     "jest-enzyme": "^4.2.0",

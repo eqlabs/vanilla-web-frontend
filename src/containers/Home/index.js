@@ -1,2 +1,2 @@
-export { Home as default } from "./Home.js";
-export * from "./Home.js";
+export { Home as default } from "./Home";
+export * from "./Home";

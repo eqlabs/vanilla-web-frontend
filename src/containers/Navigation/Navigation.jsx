@@ -5,9 +5,9 @@ import {
   Navbar,
   NavbarToggler,
   NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink
+  Nav
+  // NavItem,
+  // NavLink
 } from "reactstrap";
 
 import "./Navigation.css";
@@ -37,7 +37,7 @@ export class Navigation extends Component {
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar>
-              <NavItem>
+              {/* <NavItem>
                 <NavLink to="/" tag={Link}>
                   Home
                 </NavLink>
@@ -46,7 +46,7 @@ export class Navigation extends Component {
                 <NavLink to="/about" tag={Link}>
                   About
                 </NavLink>
-              </NavItem>
+              </NavItem> */}
             </Nav>
           </Collapse>
         </Navbar>

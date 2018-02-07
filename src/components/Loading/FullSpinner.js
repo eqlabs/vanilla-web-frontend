@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import spinner from "./spinner.svg";
 
-export class Spinner extends Component {
+export class FullSpinner extends Component {
   render() {
     const style = {
       position: "absolute",

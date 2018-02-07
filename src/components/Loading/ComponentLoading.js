@@ -1,5 +1,5 @@
 import React from "react";
-import { Spinner } from "./Spinner";
+import { FullSpinner } from "./FullSpinner";
 
 export function errorComponent() {
   return <div>Sorry, there was a problem loading the page.</div>;
@@ -10,7 +10,7 @@ export function timedOutComponent() {
 }
 
 export function pastDelayComponent() {
-  return <Spinner />;
+  return <FullSpinner />;
 }
 
 export function ComponentLoading({ error, pastDelay, timedOut }) {

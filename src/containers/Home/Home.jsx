@@ -1,14 +1,16 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 
+import { TemplateListView } from "../Templates";
+
 import "./Home.css";
 
 export function Home() {
   return (
-    <Container>
+    <Container fluid={true}>
       <Row>
         <Col>
-          <h2>Home</h2>
+          <TemplateListView />
         </Col>
       </Row>
     </Container>
