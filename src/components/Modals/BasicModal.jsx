@@ -2,14 +2,22 @@ import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 export function BasicModal(props) {
-  const { body, header, submitLabel, cancelLabel, toggle, ...rest } = props;
+  const {
+    body,
+    header,
+    cancelLabel,
+    submitLabel,
+    submitEnabled = true,
+    toggle,
+    ...rest
+  } = props;
   return (
     <div>
       <Modal toggle={toggle} {...rest}>
         <ModalHeader toggle={toggle}>{header}</ModalHeader>
         <ModalBody>{body}</ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>
+          <Button color="primary" onClick={toggle} disabled={!submitEnabled}>
             {submitLabel}
           </Button>{" "}
           <Button color="secondary" onClick={toggle}>
