@@ -1,6 +1,5 @@
 import React from "react";
 
-import { _ } from "../../components/Localize";
 import { TemplateListing } from "../../components/Templates";
 import { OrderModal } from "../../components/Modals";
 import { getTemplates } from "../../controllers/Templates";
