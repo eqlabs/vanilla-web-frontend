@@ -3,8 +3,7 @@ import { Redirect } from "react-router";
 
 import { _ } from "../../components/Localize";
 import { createOrder } from "../../controllers/Orders";
-
-const validHex = /^(0x|0X)?[a-fA-F0-9]+$/;
+import { validateAddress } from "../../util/eth";
 
 export default class OrderFormView extends React.Component {
   constructor(props) {
@@ -17,7 +16,7 @@ export default class OrderFormView extends React.Component {
   }
 
   validateWithdrawAddress(withdrawAddress) {
-    return withdrawAddress.length === 42 && validHex.test(withdrawAddress);
+    return validateAddress(withdrawAddress);
   }
 
   onInputChange(event, field) {
