@@ -3,9 +3,13 @@ import { Route } from "react-router-dom";
 
 import { Loadable } from "./components/Loading";
 
-export const Navigation = Loadable(() => import("./containers/Navigation"));
-export const Home = Loadable(() => import("./containers/Home"));
-export const OrderView = Loadable(() => import("./containers/Orders"));
+export const MainNavigation = Loadable(() =>
+  import("./containers/Navigation/MainNavigation")
+);
+export const Home = Loadable(() => import("./containers/Home/Home"));
+export const OrderView = Loadable(() =>
+  import("./containers/Orders/OrderView")
+);
 
 export function Footer() {
   return "Footer";
@@ -15,7 +19,7 @@ export function makeMainRoutes(Router, routerProps) {
   return (
     <Router {...routerProps}>
       <div>
-        <Route path="/" component={Navigation} />
+        <Route path="/" component={MainNavigation} />
         <Route exact path="/" component={Home} />
         <Route path="/order/:orderId" component={OrderView} />
         {/* <Route path="/about" component={About} /> */}

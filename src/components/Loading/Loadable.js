@@ -7,7 +7,7 @@ export function Loadable(loader, opts) {
       {
         loading: ComponentLoading,
         delay: 200,
-        timeout: 10
+        timeout: 10000
       },
       { loader },
       opts

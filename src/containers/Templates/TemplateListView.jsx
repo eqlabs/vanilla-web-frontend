@@ -3,9 +3,9 @@ import React from "react";
 import { TemplateListing } from "../../components/Templates";
 import { OrderModal } from "../../components/Modals";
 import { getTemplates } from "../../controllers/Templates";
-import { OrderFormView } from "../Orders";
+import OrderFormView from "../Orders/OrderFormView";
 
-export class TemplateListView extends React.Component {
+export default class TemplateListView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

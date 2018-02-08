@@ -10,9 +10,7 @@ import {
   // NavLink
 } from "reactstrap";
 
-import "./Navigation.css";
-
-export class Navigation extends Component {
+export default class Navigation extends Component {
   constructor(props) {
     super(props);
     this.toggleNavbar = this.toggleNavbar.bind(this);

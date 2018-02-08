@@ -1,11 +1,9 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 
-import { TemplateListView } from "../Templates";
+import TemplateListView from "../Templates/TemplateListView";
 
-import "./Home.css";
-
-export function Home() {
+export default function Home() {
   return (
     <Container fluid={true}>
       <Row>

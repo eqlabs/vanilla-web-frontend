@@ -5,7 +5,7 @@ import { BasicModal } from "./BasicModal";
 import { _ } from "../Localize";
 
 export function OrderModalHeader({ template, longshort }) {
-  return `Template #${template.templateId} ${longshort}`;
+  return `You are about to create a ${longshort} order`;
 }
 
 export function OrderModalBody(props) {

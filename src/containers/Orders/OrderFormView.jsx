@@ -6,7 +6,7 @@ import { createOrder } from "../../controllers/Orders";
 
 const validHex = /^(0x|0X)?[a-fA-F0-9]+$/;
 
-export class OrderFormView extends React.Component {
+export default class OrderFormView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
