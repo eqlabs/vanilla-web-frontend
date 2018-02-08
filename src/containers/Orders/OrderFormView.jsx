@@ -37,7 +37,7 @@ export default class OrderFormView extends React.Component {
     if (this.validateWithdrawAddress(withdrawAddress)) {
       const data = {
         withdrawAddress,
-        longshort,
+        longshort: "order.longshort." + longshort,
         ...template
       };
 

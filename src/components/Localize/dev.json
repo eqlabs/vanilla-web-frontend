@@ -6,6 +6,8 @@
   "order.actions.cancel": "Cancel",
   "order.actions.proceed": "Proceed",
   "order.form.withdrawAddress.label": "Your withdraw address:",
+  "order.longshort.short": "Short",
+  "order.longshort.long": "Short",
   "template.action.short": "Short",
   "template.action.long": "Long"
 }
