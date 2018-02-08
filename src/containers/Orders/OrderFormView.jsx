@@ -1,13 +1,19 @@
 import React from "react";
+import { Redirect } from "react-router";
 
 import { _ } from "../../components/Localize";
+import { createOrder } from "../../controllers/Orders";
 
 const validHex = /^(0x|0X)?[a-fA-F0-9]+$/;
 
 export class OrderFormView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { withdrawAddress: null, isValidWithdrawAddress: null };
+    this.state = {
+      withdrawAddress: null,
+      isValidWithdrawAddress: null,
+      order: null
+    };
   }
 
   validateWithdrawAddress(withdrawAddress) {
@@ -25,7 +31,7 @@ export class OrderFormView extends React.Component {
     }
   }
 
-  onSubmit(event) {
+  async onSubmit(event) {
     const { withdrawAddress } = this.state;
     const { template, longshort } = this.props.childProps;
 
@@ -35,12 +41,20 @@ export class OrderFormView extends React.Component {
         longshort,
         ...template
       };
+
+      const order = await createOrder(data);
+
+      this.setState({ order });
     }
   }
 
   render() {
-    const { isValidWithdrawAddress } = this.state;
+    const { isValidWithdrawAddress, order } = this.state;
     const { Child, childProps } = this.props;
+
+    if (order && order.orderId) {
+      return <Redirect push to={`/order/${order.orderId}`} />;
+    }
 
     return (
       <Child

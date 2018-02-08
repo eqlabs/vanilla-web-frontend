@@ -5,7 +5,7 @@ import { BasicModal } from "./BasicModal";
 import { _ } from "../Localize";
 
 export function OrderModalHeader({ template, longshort }) {
-  return `Template #${template.id} ${longshort}`;
+  return `Template #${template.templateId} ${longshort}`;
 }
 
 export function OrderModalBody(props) {
@@ -24,6 +24,7 @@ export function OrderModalBody(props) {
             {_("order.form.withdrawAddress.label")}
           </Label>
           <Input
+            autoFocus
             valid={inputValidations["withdrawAddress"]}
             onChange={e => onInputChange(e, "withdrawAddress")}
           />

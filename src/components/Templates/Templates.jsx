@@ -19,7 +19,7 @@ export function TemplateActions({ template, templateActions }) {
 
 export function TemplateRow({ template, templateActions }) {
   return (
-    <tr key={`templaterow-${template.id}`}>
+    <tr key={`templaterow-${template.templateId}`}>
       <td>{_(template.currencyPair)}</td>
       <td>{_(template.leverage)}</td>
       <td>{_(template.duration)}</td>
@@ -47,18 +47,16 @@ export class TemplateListing extends React.Component {
     const { loading, templates } = this.state;
     const { templateActions } = this.props;
 
-    return !loading ? (
-      <div>
-        <Table>
-          <tbody
-            children={templates.map(template =>
-              TemplateRow({ template, templateActions })
-            )}
-          />
-        </Table>
-      </div>
-    ) : (
-      <LocalSpinner />
+    if (loading) return <LocalSpinner />;
+
+    return (
+      <Table>
+        <tbody
+          children={templates.map(template =>
+            TemplateRow({ template, templateActions })
+          )}
+        />
+      </Table>
     );
   }
 }
