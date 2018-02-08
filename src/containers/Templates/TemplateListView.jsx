@@ -56,7 +56,10 @@ export class TemplateListView extends React.Component {
 
     return (
       <div>
-        <TemplateListing templates={getTemplates({ templateActions })} />
+        <TemplateListing
+          templates={getTemplates()}
+          templateActions={templateActions}
+        />
         {activeTemplate && (
           <OrderFormView Child={OrderModal} childProps={modalProps} />
         )}

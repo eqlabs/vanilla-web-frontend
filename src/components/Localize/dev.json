@@ -1,0 +1,11 @@
+{
+  "longshort.currencypair.eth-btc": "ETH-BTC",
+  "longshort.currencypair.eth-usd": "ETH-USD",
+  "longshort.duration.1-week": "1 Week",
+  "longshort.leverage.2x": "2x",
+  "order.actions.cancel": "Cancel",
+  "order.actions.proceed": "Proceed",
+  "order.form.withdrawAddress.label": "Your withdraw address:",
+  "template.action.short": "Short",
+  "template.action.long": "Long"
+}

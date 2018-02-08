@@ -4,27 +4,30 @@ import { Table, ButtonGroup, Button } from "reactstrap";
 import { _ } from "../Localize";
 import { LocalSpinner } from "../Loading";
 
-export function TemplateActions({ template }) {
+export function TemplateActions({ template, templateActions }) {
   return (
     <ButtonGroup>
-      <Button color={"danger"} onClick={template.onShortClick}>
+      <Button color={"danger"} onClick={() => templateActions.short(template)}>
         {_("template.action.short")}
       </Button>
-      <Button color={"success"} onClick={template.onLongClick}>
+      <Button color={"success"} onClick={() => templateActions.long(template)}>
         {_("template.action.long")}
       </Button>
     </ButtonGroup>
   );
 }
 
-export function TemplateRow({ template }) {
+export function TemplateRow({ template, templateActions }) {
   return (
     <tr key={`templaterow-${template.id}`}>
-      <td>{template.currencyPair}</td>
-      <td>{template.leverage}</td>
-      <td>{template.duration}</td>
+      <td>{_(template.currencyPair)}</td>
+      <td>{_(template.leverage)}</td>
+      <td>{_(template.duration)}</td>
       <td>
-        <TemplateActions template={template} />
+        <TemplateActions
+          template={template}
+          templateActions={templateActions}
+        />
       </td>
     </tr>
   );
@@ -42,12 +45,15 @@ export class TemplateListing extends React.Component {
 
   render() {
     const { loading, templates } = this.state;
+    const { templateActions } = this.props;
 
     return !loading ? (
       <div>
         <Table>
           <tbody
-            children={templates.map(template => TemplateRow({ template }))}
+            children={templates.map(template =>
+              TemplateRow({ template, templateActions })
+            )}
           />
         </Table>
       </div>

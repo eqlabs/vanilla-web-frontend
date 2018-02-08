@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": ["prettier --write", "eslint", "git add"]
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ]
   },
   "scripts": {
     "precommit": "lint-staged && nsp check",
@@ -20,6 +24,7 @@
     "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-flowtype": "^2.34.1",
     "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-json": "^1.2.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
     "eslint-plugin-security": "^1.4.0",

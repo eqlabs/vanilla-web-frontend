@@ -2,7 +2,7 @@
   "env": {
     "browser": true
   },
-  "plugins": ["security"],
+  "plugins": ["security", "json"],
   "extends": [
     "@tislaamo",
     "eslint:recommended",

@@ -13,9 +13,9 @@ export function OrderModalBody(props) {
 
   return (
     <div>
-      {template.leverage} <br />
-      {template.currencyPair} <br />
-      {template.duration}
+      {_(template.leverage)} <br />
+      {_(template.currencyPair)} <br />
+      {_(template.duration)}
       <br />
       <br />
       <Form>

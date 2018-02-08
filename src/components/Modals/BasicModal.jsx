@@ -8,6 +8,7 @@ export function BasicModal(props) {
     cancelLabel,
     submitLabel,
     submitEnabled = true,
+    onSubmit,
     toggle,
     ...rest
   } = props;
@@ -17,7 +18,11 @@ export function BasicModal(props) {
         <ModalHeader toggle={toggle}>{header}</ModalHeader>
         <ModalBody>{body}</ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle} disabled={!submitEnabled}>
+          <Button
+            color="primary"
+            onClick={onSubmit || toggle}
+            disabled={!submitEnabled}
+          >
             {submitLabel}
           </Button>{" "}
           <Button color="secondary" onClick={toggle}>

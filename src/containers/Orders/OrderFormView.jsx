@@ -25,6 +25,19 @@ export class OrderFormView extends React.Component {
     }
   }
 
+  onSubmit(event) {
+    const { withdrawAddress } = this.state;
+    const { template, longshort } = this.props.childProps;
+
+    if (this.validateWithdrawAddress(withdrawAddress)) {
+      const data = {
+        withdrawAddress,
+        longshort,
+        ...template
+      };
+    }
+  }
+
   render() {
     const { isValidWithdrawAddress } = this.state;
     const { Child, childProps } = this.props;
@@ -36,6 +49,7 @@ export class OrderFormView extends React.Component {
         formIsValid={isValidWithdrawAddress}
         submitLabel={_("order.actions.proceed")}
         cancelLabel={_("order.actions.cancel")}
+        onSubmit={this.onSubmit.bind(this)}
         {...childProps}
       />
     );
