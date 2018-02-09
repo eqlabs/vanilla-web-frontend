@@ -39,6 +39,12 @@ export async function retrieveOrder(orderId) {
   return orders.find(order => order.orderId === orderId);
 }
 
+export async function retrieveOpenOrders(orderId) {
+  const orders = JSON.parse(localStorage.getItem(ordersKey) || "[]");
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  return orders;
+}
+
 export async function getOrderStatus(orderId) {
   const ordersStatus = JSON.parse(
     localStorage.getItem(ordersStatusKey) || "{}"

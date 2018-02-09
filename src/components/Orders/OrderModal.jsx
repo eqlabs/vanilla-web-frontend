@@ -28,6 +28,9 @@ export function OrderModalBody(props) {
             valid={inputValidations["withdrawAddress"]}
             onChange={e => onInputChange(e, "withdrawAddress")}
           />
+          <br />
+          <Label for="email">{_("order.form.email.label")}</Label>
+          <Input type="email" onChange={e => onInputChange(e, "email")} />
         </FormGroup>
       </Form>
     </div>

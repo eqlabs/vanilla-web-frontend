@@ -12,6 +12,7 @@
   "order.actions.cancel": "Cancel",
   "order.actions.proceed": "Proceed",
   "order.form.withdrawAddress.label": "Your withdraw address:",
+  "order.form.email.label": "Your email address (optional):",
   "order.longshort.short": "Short",
   "order.longshort.long": "Short",
   "template.action.short": "Short",
