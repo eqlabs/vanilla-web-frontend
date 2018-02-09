@@ -1,7 +1,7 @@
 import React from "react";
 
 import { TemplateListing } from "../../components/Templates";
-import { OrderModal } from "../../components/Modals";
+import { OrderModal } from "../../components/Orders";
 import { getTemplates } from "../../controllers/Templates";
 import OrderFormView from "../Orders/OrderFormView";
 

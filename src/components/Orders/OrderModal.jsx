@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 
-import { BasicModal } from "./BasicModal";
+import { BasicModal } from "../Modals";
 import { _ } from "../Localize";
 
 export function OrderModalHeader({ template, longshort }) {

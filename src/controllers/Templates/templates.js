@@ -1,20 +1,38 @@
-export async function getTemplates() {
-  let templates = [
-    {
-      templateId: 1,
-      leverage: "longshort.leverage.2x",
-      duration: "longshort.duration.1-week",
-      currencyPair: "longshort.currencypair.eth-usd"
-    },
-    {
-      templateId: 2,
-      leverage: "longshort.leverage.2x",
-      duration: "longshort.duration.1-week",
-      currencyPair: "longshort.currencypair.eth-btc"
-    }
-  ];
+const leverages = [
+  "longshort.leverage.2x",
+  "longshort.leverage.5x",
+  "longshort.leverage.10x"
+];
 
-  await new Promise(resolve => setTimeout(resolve, 500));
+const durations = [
+  "longshort.duration.1-week",
+  "longshort.duration.2-week",
+  "longshort.duration.4-week",
+  "longshort.duration.6-week",
+  "longshort.duration.8-week"
+];
+
+const currencyPairs = [
+  "longshort.currencypair.eth-usd",
+  "longshort.currencypair.eth-btc"
+];
+
+function randomChoice(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+export async function getTemplates() {
+  const N = 10;
+  const delay = 500;
+
+  const templates = [...Array(N).keys()].map((t, idx) => ({
+    templateId: idx,
+    leverage: randomChoice(leverages),
+    duration: randomChoice(durations),
+    currencyPair: randomChoice(currencyPairs)
+  }));
+
+  await new Promise(resolve => setTimeout(resolve, delay));
 
   return templates;
 }

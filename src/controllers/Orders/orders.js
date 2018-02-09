@@ -1,9 +1,7 @@
 import { uuidV4 } from "../../util/uuid";
-import { generateETHAddress } from "../../util/eth";
 
 const ordersKey = "orders";
 const ordersStatusKey = "ordersStatus";
-const proxyWalletsKey = "proxyWallets";
 
 const orderStatuses = {
   0: "order.status.unknown",
@@ -35,25 +33,10 @@ export async function storeOrder(order) {
   localStorage.setItem(ordersKey, JSON.stringify(orders));
 }
 
-export async function retrieveOrders() {
-  const orders = JSON.parse(localStorage.getItem(ordersKey) || "[]");
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  return orders;
-}
-
 export async function retrieveOrder(orderId) {
   const orders = JSON.parse(localStorage.getItem(ordersKey) || "[]");
   await new Promise(resolve => setTimeout(resolve, 1000));
   return orders.find(order => order.orderId === orderId);
-}
-
-export function setOrderStatus(orderId, status) {
-  const ordersStatus = JSON.parse(
-    localStorage.getItem(ordersStatusKey) || "{}"
-  );
-  // eslint-disable-next-line
-  ordersStatus[orderId] = status;
-  localStorage.setItem(ordersStatusKey, JSON.stringify(ordersStatus));
 }
 
 export async function getOrderStatus(orderId) {
@@ -64,20 +47,11 @@ export async function getOrderStatus(orderId) {
   return orderStatuses[ordersStatus[orderId]] || "order.status.unknown";
 }
 
-export async function getProxyWalletForOrder(orderId) {
-  const proxyWallets = JSON.parse(
-    localStorage.getItem(proxyWalletsKey) || "[]"
+export function setOrderStatus(orderId, status) {
+  const ordersStatus = JSON.parse(
+    localStorage.getItem(ordersStatusKey) || "{}"
   );
-  let proxyWallet = proxyWallets.find(pw => pw.orderId === orderId);
-  if (!proxyWallet) {
-    proxyWallet = {
-      orderId,
-      address: generateETHAddress()
-    };
-    proxyWallets.push(proxyWallet);
-    await new Promise(resolve => setTimeout(resolve, 5000));
-  }
-  localStorage.setItem(proxyWalletsKey, JSON.stringify(proxyWallets));
-  setOrderStatus(orderId, 3);
-  return proxyWallet.address;
+  // eslint-disable-next-line
+  ordersStatus[orderId] = status;
+  localStorage.setItem(ordersStatusKey, JSON.stringify(ordersStatus));
 }
