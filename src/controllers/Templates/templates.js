@@ -1,8 +1,4 @@
-const leverages = [
-  "longshort.leverage.2x",
-  "longshort.leverage.5x",
-  "longshort.leverage.10x"
-];
+const leverages = ["longshort.leverage.2", "longshort.leverage.5"];
 
 const durations = [
   "longshort.duration.1-week",
@@ -12,10 +8,7 @@ const durations = [
   "longshort.duration.8-week"
 ];
 
-const currencyPairs = [
-  "longshort.currencypair.eth-usd",
-  "longshort.currencypair.eth-btc"
-];
+const currencyPairs = ["longshort.currencypair.eth-usd"];
 
 function randomChoice(arr) {
   return arr[Math.floor(Math.random() * arr.length)];

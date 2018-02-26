@@ -30,7 +30,11 @@ export function OrderModalBody(props) {
           />
           <br />
           <Label for="email">{_("order.form.email.label")}</Label>
-          <Input type="email" onChange={e => onInputChange(e, "email")} />
+          <Input
+            type="email"
+            valid={inputValidations["userEmail"]}
+            onChange={e => onInputChange(e, "userEmail")}
+          />
         </FormGroup>
       </Form>
     </div>

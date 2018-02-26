@@ -7,7 +7,7 @@ import { _ } from "../Localize";
 export function OrderListItem(order) {
   return (
     <ListGroupItem key={order.orderId}>
-      <Link to={`/order/${order.orderId}`}>{order.orderId}</Link>
+      <Link to={`/orders/${order.orderId}`}>{order.orderId}</Link>
       <br />
       {_(order.longshort)} {_(order.currencyPair)} {_(order.leverage)}{" "}
       {_(order.duration)}

@@ -11,12 +11,19 @@ export default class OrderFormView extends React.Component {
     this.state = {
       withdrawAddress: null,
       isValidWithdrawAddress: null,
+      userEmail: "",
+      isValidUserEmail: null,
       order: null
     };
   }
 
   validateWithdrawAddress(withdrawAddress) {
     return validateAddress(withdrawAddress);
+  }
+
+  validateEmailAddress(email) {
+    // TODO
+    return true;
   }
 
   onInputChange(event, field) {
@@ -27,17 +34,25 @@ export default class OrderFormView extends React.Component {
       } else {
         this.setState({ isValidWithdrawAddress: false });
       }
+    } else if (field === "userEmail") {
+      const userEmail = event.target.value;
+      if (this.validateEmailAddress(userEmail)) {
+        this.setState({ userEmail, isValidUserEmail: true });
+      } else {
+        this.setState({ isValidUserEmail: false });
+      }
     }
   }
 
   async onSubmit(event) {
-    const { withdrawAddress } = this.state;
+    const { withdrawAddress, userEmail } = this.state;
     const { template, longshort } = this.props.childProps;
 
     if (this.validateWithdrawAddress(withdrawAddress)) {
       const data = {
         withdrawAddress,
-        longshort: "order.longshort." + longshort,
+        userEmail,
+        longshort: "longshort.type." + longshort,
         ...template
       };
 
@@ -48,17 +63,20 @@ export default class OrderFormView extends React.Component {
   }
 
   render() {
-    const { isValidWithdrawAddress, order } = this.state;
+    const { isValidWithdrawAddress, isValidUserEmail, order } = this.state;
     const { Child, childProps } = this.props;
 
     if (order && order.orderId) {
-      return <Redirect push to={`/order/${order.orderId}`} />;
+      return <Redirect push to={`/orders/${order.orderId}`} />;
     }
 
     return (
       <Child
         onInputChange={this.onInputChange.bind(this)}
-        inputValidations={{ withdrawAddress: isValidWithdrawAddress }}
+        inputValidations={{
+          withdrawAddress: isValidWithdrawAddress,
+          userEmail: isValidUserEmail
+        }}
         formIsValid={isValidWithdrawAddress}
         submitLabel={_("order.actions.proceed")}
         cancelLabel={_("order.actions.cancel")}

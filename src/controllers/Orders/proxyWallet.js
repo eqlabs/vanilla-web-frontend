@@ -1,9 +1,7 @@
 import { setOrderStatus } from "./orders";
 
 export async function getProxyWalletForOrder(orderId) {
-  const address = (await fetch(
-    "http://localhost:8080/proxywallet/create"
-  )).json();
-  setOrderStatus(orderId, 3);
+  const address = (await fetch("http://localhost:7000/proxywallets")).json();
+  if (address) setOrderStatus(orderId, 3);
   return address;
 }

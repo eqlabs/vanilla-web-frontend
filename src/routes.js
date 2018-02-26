@@ -21,7 +21,7 @@ export function makeMainRoutes(Router, routerProps) {
       <div>
         <Route path="/" component={MainNavigation} />
         <Route exact path="/" component={Home} />
-        <Route path="/order/:orderId" component={OrderView} />
+        <Route path="/orders/:orderId" component={OrderView} />
         {/* <Route path="/about" component={About} /> */}
         {/* <Route path="/" component={Footer} /> */}
       </div>
