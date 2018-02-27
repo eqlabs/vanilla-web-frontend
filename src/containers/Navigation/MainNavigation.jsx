@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import {
+  Container,
   Collapse,
   Navbar,
   NavbarToggler,
@@ -9,6 +10,8 @@ import {
   // NavItem,
   // NavLink
 } from "reactstrap";
+import "./MainNavigation.css";
+import logo from "./vanilla.png";
 
 export default class Navigation extends Component {
   constructor(props) {
@@ -28,14 +31,15 @@ export default class Navigation extends Component {
   render() {
     return (
       <div>
-        <Navbar light expand="md">
-          <NavbarBrand to="/" tag={Link} className="mr-auto">
-            Vanilla
-          </NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
-          <Collapse isOpen={!this.state.collapsed} navbar>
-            <Nav navbar>
-              {/* <NavItem>
+        <Container fluid={true}>
+          <Navbar light expand="md">
+            <NavbarBrand to="/" tag={Link} className="mr-auto">
+              <img className="vanilla-logo" src={logo} alt="Vanilla" />
+            </NavbarBrand>
+            <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+            <Collapse isOpen={!this.state.collapsed} navbar>
+              <Nav navbar>
+                {/* <NavItem>
                 <NavLink to="/" tag={Link}>
                   Home
                 </NavLink>
@@ -45,9 +49,10 @@ export default class Navigation extends Component {
                   About
                 </NavLink>
               </NavItem> */}
-            </Nav>
-          </Collapse>
-        </Navbar>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </Container>
       </div>
     );
   }
