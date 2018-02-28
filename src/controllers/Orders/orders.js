@@ -1,7 +1,5 @@
-import { uuidV4 } from "../../util/uuid";
 import web3 from "web3";
-
-import * as backend from "../../backend";
+import { uuidV4 } from "../../util/uuid";
 
 const ordersKey = "orders";
 const ordersStatusKey = "ordersStatus";
@@ -46,9 +44,6 @@ export async function createOrder(data) {
   });
   setOrderStatus(order.orderId, 2);
   await storeOrder(order);
-
-  backend.postOrder(prepareOrder(order));
-
   return order;
 }
 
@@ -86,14 +81,11 @@ export async function storeOrder(order) {
 
 export async function retrieveOrder(orderId) {
   const orders = JSON.parse(localStorage.getItem(ordersKey) || "[]");
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  backend.getOrder(orderId);
   return orders.find(order => order.orderId === orderId);
 }
 
 export async function retrieveOpenOrders(orderId) {
   const orders = JSON.parse(localStorage.getItem(ordersKey) || "[]");
-  await new Promise(resolve => setTimeout(resolve, 1000));
   return orders;
 }
 

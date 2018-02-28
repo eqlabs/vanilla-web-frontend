@@ -3,15 +3,11 @@ import { Card, CardHeader, CardBody } from "reactstrap";
 
 import { _ } from "../../components/Localize";
 
-export function OrderDetailCard({ order, orderStatus, proxyAddress }) {
+export function OrderDetailCard({ order, orderStatus }) {
   return (
     <Card>
       <CardHeader>Order ID: {order.orderId}</CardHeader>
-      <CardBody className="order-card-order-instructions">
-        {proxyAddress
-          ? `Send your moneyz to ${proxyAddress}`
-          : "Waiting for proxy wallet..."}
-      </CardBody>
+      <CardBody className="order-card-order-instructions" />
       <CardBody className="order-card-order-progress">
         Progress: <br />
         {orderStatus}

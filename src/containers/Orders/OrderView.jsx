@@ -3,11 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 
 import { FullSpinner } from "../../components/Loading";
 import { OrderDetailCard } from "../../components/Orders";
-import {
-  retrieveOrder,
-  getOrderStatus,
-  getProxyWalletForOrder
-} from "../../controllers/Orders";
+import { retrieveOrder, getOrderStatus } from "../../controllers/Orders";
 
 import "./OrderView.css";
 
@@ -29,12 +25,6 @@ export default class OrderView extends React.Component {
         loading: false
       });
     });
-
-    getProxyWalletForOrder(this.props.match.params.orderId).then(
-      proxyAddress => {
-        this.setState({ proxyAddress });
-      }
-    );
   }
 
   componentDidMount() {
