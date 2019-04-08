@@ -21,8 +21,8 @@
   },
   "devDependencies": {
     "@tislaamo/eslint-config": "^1.0.3",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
     "eslint": "^4.16.0",
     "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-flowtype": "^2.34.1",
@@ -49,6 +49,6 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.0",
     "reactstrap": "^5.0.0-alpha.4",
-    "web3": "^1.0.0-beta.30"
+    "web3": "^1.0.0-beta2"
   }
 }
