@@ -3,17 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "lint-staged": {
-    "src/**/*.{js,jsx,json}": [
-      "prettier --write",
-      "eslint",
-      "git add"
-    ],
-    "src/**/*.css": [
-      "stylelint"
-    ]
+    "src/**/*.{js,jsx,json}": ["prettier --write", "eslint", "git add"],
+    "src/**/*.css": ["stylelint"]
   },
   "scripts": {
-    "precommit": "nsp check && lint-staged",
+    "precommit": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
